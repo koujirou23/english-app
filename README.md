@@ -1,24 +1,68 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column                | Type    | Options     |
+| --------------------- | ------  | ----------- |
+| nickname              | string  | null: false |
+| email                 | string  | null: false |
+| password              | string  | null: false |
+| password_confirmation | string  | null: false |
+| tall                  | integer | null: false |
+| weight                | integer | null: false |
 
-* Ruby version
+### Association
 
-* System dependencies
+- has_many :posts
+- has_many :comments
 
-* Configuration
+## posts テーブル
 
-* Database creation
+| Column          | Type       | Options           |
+| --------------- | -------    | ----------------- |
+| name            | string     | null: false       |
+| text            | text       | null: false       |
+| user            | references | foreign_key: true |
 
-* Database initialization
+### Association
 
-* How to run the test suite
+- belongs_to :user
+- has_many :comments
+- has_many :posts_tags
+- has_many :tags, through: :posts_tags
 
-* Services (job queues, cache servers, search engines, etc.)
+## tags テーブル
 
-* Deployment instructions
+| Column        | Type       | Options           |
+| ----------    | ---------- | ----------------- |
+| text          | string     |                   |
 
-* ...
+### Association
+
+- has_many :posts_tags
+- has_many :posts, through: :posts_tags
+
+## posts_tags テーブル
+
+| Column     | Type          | Options           |
+| ---------- | ------------- | ----------------- |
+| post       | references    | foreign_key: true |
+| tag        | references    | foreign_key: true |
+
+### Association
+
+- belongs_to :post
+- belongs_to :tag
+
+## comments テーブル
+
+| Column     | Type          | Options           |
+| ---------- | ------------- | ----------------- |
+| text       | string        | null: false       |
+| post       | references    | foreign_key: true |
+| tag        | references    | foreign_key: true |
+
+### Association
+
+- belongs_to :post
+- belongs_to :user
