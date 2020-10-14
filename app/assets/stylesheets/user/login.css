@@ -1,0 +1,18 @@
+.login-flash-message {
+  text-align: center;
+  color: red;
+}
+
+.login-form-group{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  margin: 20px auto;
+  padding-top: 20px;
+}
+
+
+.login-btn {
+  width: 50%;
+  margin: 40px auto;
+}

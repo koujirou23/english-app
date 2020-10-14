@@ -1,0 +1,56 @@
+<%= render "shared/second-header"%>
+
+<%= form_with model:@user, url: user_registration_path, class: 'new-user', local: true do |f|%>
+
+  
+
+  <div class="form-wrap">
+  <div class='form-header'>
+    <h1 class='form-header-text'>
+      会員情報入力
+    </h1>
+  </div>
+  <%# エラーメッセージ表示 %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">ニックネーム</label>
+    </div>
+      <%= f.text_area :nickname, class:"input-default", id:"nickname", placeholder:"ニックネームを入力してください", maxlength:"20"%>
+  </div>
+
+  <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">メールアドレス</label>
+    </div>
+      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"メールアドレスを入力してください", autofocus: true %>
+  </div>
+
+    <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">パスワード</label>
+    </div>
+      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"パスワードを入力してください(８文字以上の半角英数)"%>
+      <p class="info-text">※英字と数字両方を含めて入力してください</p>
+  </div>
+
+    <div class="form-group">
+    <div class='form-text-wrap'>
+      <label class="form-text">パスワード(確認)</label>
+    </div>
+      <%= f.password_field :password_confirmation, class:"input-default", id:"password_cofirmation", placeholder:"同じパスワードを入力してください" %>
+  </div>
+
+  <div class="form-group">
+    <p>会員登録ボタンを押すと利用規約に同意したものと見なします</p>
+  </div>
+
+  <div class="form-group">
+    <div class='register-btn'>
+      <%= f.submit "会員登録" ,class:"register-red-btn" %>
+    </div>
+  </div>
+  </div>
+<% end %>
+
+<%= render "shared/second-footer"%>
