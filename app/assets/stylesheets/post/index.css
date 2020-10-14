@@ -1,0 +1,14 @@
+.post-lists {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+
+.post-info {
+  text-align: center;
+}
+
+img {
+  width: 55vh;
+  height: 33vh;
+}
