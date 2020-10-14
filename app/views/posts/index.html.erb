@@ -1,0 +1,39 @@
+<%= render "shared/header"%>
+<div class="main">
+  <%# ダミー画像 %>
+  <% if @posts == nil %>
+    <div class="post-lists">
+      <div class="list">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+        </div>
+        <div class="post-info">
+          <h3 class="post-title">
+            The title will be include
+          </h3>
+        </div>
+      </div>
+      <div class="list">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+        </div>
+        <div class="post-info">
+          <h3 class="post-title">
+            The title will be include
+          </h3>
+        </div>
+      </div>
+      <div class="list">
+        <div class="img">
+          <img src="https://images.unsplash.com/photo-1496284427489-f59461d8a8e6?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9">
+        </div>
+        <div class="post-info">
+          <h3 class="post-title">
+            The title will be include
+          </h3>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+<%= render "shared/footer"%>

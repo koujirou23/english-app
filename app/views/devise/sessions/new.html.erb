@@ -1,41 +1,24 @@
-<%= render "shared/second-header"%>
-
-<%= form_with model:@user, url: user_session_path, class: 'new-user', local: true do |f|%>
-
-  <div class="form-wrap">
-  <div class='form-header'>
-    <h1 class='form-header-text'>
-      ログイン
-    </h1>
-  </div>
-  
-  <div class='login-flash-message'>
-    <%= flash[:notice] %>
-    <%= flash[:alert] %>
-  </div>
-
-  <div class="login-form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">メールアドレス</label>
+<%= form_with model:@user, url: user_session_path, class: "user-session", local: true do |f|%>
+  <div class="form-wrapper">
+    <h1>Sign In</h1>
+    <div class='login-flash-message'>
+      <%= flash[:notice] %>
+      <%= flash[:alert] %>
     </div>
-      <%= f.email_field :email, class:"input-default", id:"email", placeholder:"メールアドレスを入力してください", autofocus: true %>
-  </div>
-
-  <div class="login-form-group">
-    <div class='form-text-wrap'>
-      <label class="form-text">パスワード</label>
+    <div class="form-item">
+      <label for="email"></label>
+      <%= f.email_field :email, id:"email", placeholder:"Email Address", autofocus: true %>
     </div>
-      <%= f.password_field :password, class:"input-default", id:"password", placeholder:"パスワードを入力してください(８文字以上の半角英数)"%>
-      <p class="info-text">※英字と数字両方を含めて入力してください</p>
-  </div>
-
-
-  <div class="form-group">
-    <div class='login-btn'>
-      <%= f.submit "ログイン" ,class:"register-red-btn" %>
+    <div class="form-item">
+      <label for="password"></label>
+      <%= f.password_field :password, id:"password", placeholder:"Password"%>
     </div>
-  </div>
+    <div class="button-panel">
+      <%= f.submit "SIGN IN" ,class:"button" %>
+    </div>
+    <div class="form-footer">
+      <p><a href="#">Create an account</a></p>
+      <p><a href="#">Forgot password?</a></p>
+    </div>
   </div>
 <% end %>
-
-<%= render "shared/second-footer"%>
