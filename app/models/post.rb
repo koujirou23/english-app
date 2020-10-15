@@ -1,7 +1,5 @@
 class Post < ApplicationRecord
 
-  validates :image, :title, :text, presence: true
-
   belongs_to :user
   has_many :comments
   has_many :posts_tags
