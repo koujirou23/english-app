@@ -1,6 +1,6 @@
 class PostsTag
 
-  include ActiveModel::ActiveModel
+  include ActiveModel::Model
   attr_accessor :image, :title, :text, :user_id, :name
 
   validates :image, :title, :text, :name, presence: true 
