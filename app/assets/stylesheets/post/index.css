@@ -1,8 +1,18 @@
+.main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.title {
+  text-align: center;
+  padding-top: 40px;
+}
+
 .post-lists {
   display: flex;
   justify-content: space-around;
-  padding-top: 100px;
-  background-color: #f5f5f5;
+  padding-top: 50px;
 }
 
 .post-info {
