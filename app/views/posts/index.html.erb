@@ -9,19 +9,19 @@
         <li class="list">
           <%= link_to "#", method: :get do %>
             <div class="post-image-content">
-              <%= image_tag pots.image, class: "post-image" if post.image.attached?%>
+              <%= image_tag post.image, class: "post-image" if post.image.attached?%>
             </div>
+          <% end %>
             <div class="post-info">
               <h3 class="post-title">
                 <%= post.title%>
               </h3>
             </div>
         </li>
-        <% end %>
       <% end %>
     </ul>
   </div>
-  
+
   <%# ダミー画像 %>
   <% if @posts.blank? %>
     <div class="post-lists">
