@@ -13,4 +13,7 @@ class User < ApplicationRecord
                               message: 'Include (@)' }
 
   validates :nickname, :password_confirmation, presence: true
+
+  has_many :posts
+  has_many :comments
 end

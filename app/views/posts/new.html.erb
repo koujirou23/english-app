@@ -1,0 +1,31 @@
+<%= render "shared/header"%>
+
+<div class="post-main">
+  <h2 class="post-main-title">
+    Wirte a diary in English
+  </h2>
+
+  <%= form_with model: @post, local: true do |f| %>
+
+    <%# エラーメッセージ表示 %>
+    <%= render 'shared/error_messages', model: f.object %>
+    <div class="post-form">
+      <%# 投稿フォーム %>
+      <div class="img-upload">
+        <%= f.file_field :image, class:"img-form", id:"post-image" %>
+      </div>
+
+      <div class="new-post">
+        <%= f.text_area :title, class:"title-text", id:"title", placeholder:"Title", maxlength:"20" %>
+      </div>
+      <div class="new-post">
+        <%= f.text_area :text, class:"post-text", id:"text", placeholder:"text", maxlength:"1000" %>
+      </div>
+
+      <div class="post-btn-contents">
+        <%= f.submit "Post" ,class:"post-btn" %>
+        <%= link_to 'Return to home', root_path, class:"back-btn"%>
+      </div>
+    </div>
+  <% end %>
+</div>
