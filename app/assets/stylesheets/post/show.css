@@ -41,6 +41,14 @@
   margin: auto;
 }
 
+.comment-lists {
+}
+
+.comment-list {
+  padding: 5px;
+  margin-top: 15px;
+}
+
 .comment-form {
   width: 30vw;
   height: 50px;

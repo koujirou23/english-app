@@ -17,13 +17,23 @@
         <p class="post-title"><%= @post.title %></p>
         <p class="post-text-box"><%= @post.text %></p>
       </div>
-      <div class="commtent-lists">
+      <div class="comment-lists">
           <p>＜comment list＞</p>
-        <div>
+          <% if @comments %>
+            <% @comments.each do |comment| %>
+              <p class="comment-list">
+                <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
+                <%= comment.comment %>
+              </p>
+            <% end %>
+          <% end %>
+      </div>
       <div class="comment-form-content">
-        <%= form_with model: @comment ,local: true do |f| %>
-          <p><%= f.text_field :text , class: "comment-form", placeholder: "comment" %></p>
-          <p><%= f.submit "SEND", class: "comment-btn" %></p>
+        <% if user_signed_in? %>
+          <%= form_with model: [@post, @comment], local: true do |f| %>
+            <p><%= f.text_field :comment , class: "comment-form", placeholder: "comment" %></p>
+            <p><%= f.submit "SEND", class: "comment-btn" %></p>
+          <% end %>
         <% end %>
       </div>  
     </div>
