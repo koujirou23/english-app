@@ -32,7 +32,7 @@
 
 | Column        | Type       | Options           |
 | ----------    | ---------- | ----------------- |
-| text          | string     |                   |
+| name          | string     |                   |
 
 ### Association
 

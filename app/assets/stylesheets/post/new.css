@@ -37,6 +37,13 @@
   border: 1px solid black;
 }
 
+.tag-text {
+  padding-left: 5px;
+  width: 30vw;
+  height: 4vh;
+  border: 1px solid black;
+}
+
 
 .post-btn {
   width: 200px;
