@@ -2,16 +2,16 @@
 <div class="main">
 
   <%# 投稿表示 %>
-  <div class="post-contents">
+  <div class="post-content">
     <h2 class="title">Post List</h2>
     <ul class="post-lists">
       <% @posts.each do |post|%>
         <li class="list">
-          <%= link_to "#", method: :get do %>
+          <%= link_to post_path(post.id), method: :get do %>
             <div class="post-image-content">
               <%= image_tag post.image, class: "post-image" if post.image.attached?%>
             </div>
-          <% end %>
+          <% end %> 
             <div class="post-info">
               <h3 class="post-title">
                 <%= post.title%>

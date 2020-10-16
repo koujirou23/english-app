@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show]
+  
   def index
     @posts = Post.all.order(id: 'DESC')
   end
@@ -17,9 +19,16 @@ class PostsController < ApplicationController
     end
   end
 
+  def show
+  end
+
   private
 
   def post_params
     params.require(:posts_tag).permit(:image, :title, :text, :name).merge(user_id: current_user.id)
+  end
+
+  def set_post
+    @post = Post.find(params[:id])
   end
 end

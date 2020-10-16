@@ -1,0 +1,29 @@
+<%= render "shared/header"%>
+<div class="show-main">
+  <div class="show-contents">
+    <div class="show-content">
+      <div class="post-image-content">
+        <%= image_tag @post.image, class: "post-image"%>
+      </div>
+      <%# タグの表示 %>
+      <div class="post-tag-content">
+        <div class="post-tag">
+          <%@post.tags.each do |tag| %>
+            #<%=tag.name%>
+          <%end%>
+        </div>
+      </div>  
+      <div class="post-container">
+        <p class="post-title"><%= @post.title %></p>
+        <p class="post-text-box"><%= @post.text %></p>
+      </div>
+      <div class="comment-form-content">
+        <%= form_with model: @comment ,local: true do |f| %>
+          <p><%= f.text_field :text , class: "comment-form", placeholder: "comment" %></p>
+          <p><%= f.submit "SEND", class: "comment-btn" %></p>
+        <% end %>
+        <div class="commtent-lists">
+        <div>
+      </div>  
+    </div>
+</div>
