@@ -20,11 +20,12 @@
       <div class="comment-lists">
           <p>＜comment list＞</p>
           <% if @comments %>
-            <% @comments.each do |comment| %>
+            <% @post.comments.each do |comment| %>
               <p class="comment-list">
                 <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
                 <%= comment.comment %>
               </p>
+              <p><%= link_to 'Comment Delete', post_comment_path(@post, comment), method: :delete %></p>
             <% end %>
           <% end %>
       </div>

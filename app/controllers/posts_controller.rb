@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show,:edit,:destroy]
   
   def index
     @posts = Post.all.order(id: 'DESC')
@@ -22,6 +22,17 @@ class PostsController < ApplicationController
   def show
     @comment = Comment.new
     @comments = @post.comments.includes(:user)
+  end
+
+  def edit
+  end
+
+  def destroy
+    if @post.destroy
+    redirect_to root_path
+    else
+      render :show
+    end
   end
 
   private
