@@ -11,11 +11,6 @@ RSpec.describe PostsTag, type: :model do
       it '全ての値が正しく保存されているとき' do
         expect(@post_tag).to be_valid
       end
-
-      it 'tagが空でも保存されるとき' do
-       @post_tag.name = nil
-       expect(@post_tag).to be_valid
-      end
     end
 
     context '新規投稿がうまくいかないとき' do
