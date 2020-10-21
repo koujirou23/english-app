@@ -27,21 +27,11 @@
 
 .post-container {
   margin: 20px auto 20px;
-  padding: 30px;
 }
 
 .post-title {
   font-size: 20px;
-  margin-bottom: 50px;
-}
-
-.post-text-box {
-  border: 1px solid black;
-  max-width: 30vw;
-  margin: auto;
-}
-
-.comment-lists {
+  margin-bottom: 10px;
 }
 
 .comment-list {
