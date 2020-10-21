@@ -5,9 +5,9 @@ class PostsTag
   validates :image,  presence: true
 
   with_options presence: true do
-    validates :title, format: {with: /\A[a-zA-Z0-9]+\z/, message: 'is invalid. Input half-width characters.'}
-    validates :text,  format: {with: /\A[a-zA-Z0-9]+\z/, message: 'is invalid. Input half-width characters.'}
-    validates :name,  format: {with: /\A[a-zA-Z0-9]+\z/, message: 'is invalid. Input half-width characters.'}
+    validates :title, format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
+    validates :text,  format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
+    validates :name,  format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
   end
 
   def save
