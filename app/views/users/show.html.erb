@@ -1,0 +1,17 @@
+<%= render "shared/mypage_header"%>
+<div class="show-main">
+  <div class="show-contents">
+    <div class="show-content">
+      <div class="user-image-content">
+        <% if @user.image.blank? %>
+          <%= image_tag "user_icon.png", class: "user-image" %>
+        <% else %>
+          <%= image_tag @user.image, class: "user-image" if @user.image.attached? %>
+        <% end %>
+      </div>
+      <div class="post-container">
+        <p class="user-nickname"><%= @user.nickname %></p>
+      </div>
+    </div>
+  </div>
+</div>
