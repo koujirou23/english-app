@@ -11,7 +11,6 @@
           <li><%= link_to current_user.nickname, '/users/show', class: "header-text" %></li>
           <li><%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: "header-text" %> </li> 
         <% else %>
-          <li><%= link_to @post.user.nickname, '/users/show', class: "header-text"%></li>
           <li><%= link_to 'Sign Up', new_user_registration_path, class: "header-text" %></li>
           <li><%= link_to 'Log In', new_user_session_path, class: "header-text" %></li>
         <% end %>
@@ -21,10 +20,10 @@
            <%= link_to 'New post', new_post_path, class: "header-text" %>
           </li>
         <% end %>
-        <% if user_signed_in? && @post.user_id == current_user.id %>
+        <% if user_signed_in? && @user.id == current_user.id %>
           <li class="nav-item">
-           <%= link_to 'Edit', edit_post_path, method: :get, class: "header-text" %>
-           <%= link_to 'Delete', post_path(@post.id), method: :delete, class: "header-text" %>
+           <%= link_to 'Edit Profiel', edit_user_path, method: :get, class: "header-text" %>
+           <%= link_to 'Cansel membership', user_path, method: :delete, class: "header-text"%>
           </li>
         <% end %>
     </ul>
