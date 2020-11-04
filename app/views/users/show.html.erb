@@ -1,7 +1,7 @@
 <%= render "shared/mypage_header"%>
-<div class="show-main">
+<div class="user-show-main">
   <div class="show-contents">
-    <div class="show-content">
+    <div class="user-show-content">
       <div class="user-image-content">
         <% if @user.image.blank? %>
           <%= image_tag "user_icon.png", class: "user-image" %>
@@ -13,5 +13,21 @@
         <p class="user-nickname"><%= @user.nickname %></p>
       </div>
     </div>
+  </div>
+  <div class="post-content">
+    <h2 class="title">Post List</h2>
+    <ul class="post-lists">
+      <% @posts.each do |post|%>
+        <li class="list">
+          <%= link_to post_path(post.id), method: :get do %>
+            <div class="post-image-content">
+              <% if post.user_id == current_user.id %>
+                <%= image_tag post.image, class: "post-image" if post.image.attached?%>
+              <% end %>
+            </div>
+          <% end %> 
+        </li>
+      <% end %>
+    </ul>
   </div>
 </div>
