@@ -3,6 +3,7 @@ class UsersController < ApplicationController
   before_action :move_to_show, expect: [:show]
 
   def show
+    @posts = Post.all.order(id: 'DESC')
   end
 
   def edit

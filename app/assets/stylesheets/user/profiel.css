@@ -1,3 +1,9 @@
+.user-show-main {
+  width: 100vw;
+  height: 100vh;
+  background-color: #C0C0C0;
+}
+
 .user-image {
   width: 300px;
   height: 300px;
