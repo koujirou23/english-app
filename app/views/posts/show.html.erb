@@ -15,7 +15,7 @@
       </div>  
       <div class="post-container">
         <p class="post-title"><%= @post.title %></p>
-        <p class="post-text-box"><%= @post.text %></p>
+        <p><%= simple_format(@post.text) %></p>
       </div>
       <div class="comment-lists">
           <p>＜comment list＞</p>
@@ -25,7 +25,9 @@
                 <strong><%= link_to comment.user.nickname, "/users/#{comment.user_id}" %>：</strong>
                 <%= comment.comment %>
               </p>
-              <p><%= link_to 'Comment Delete', post_comment_path(@post, comment), method: :delete %></p>
+              <% if user_signed_in? && comment.user_id == current_user.id %>
+                <p><%= link_to 'Comment Delete', post_comment_path(@post, comment), method: :delete %></p>
+              <% end %>
             <% end %>
           <% end %>
       </div>

@@ -9,6 +9,10 @@
   padding-top: 40px;
 }
 
+.list {
+  list-style: none;
+}
+
 .post-lists {
   display: flex;
   flex-wrap: wrap;
