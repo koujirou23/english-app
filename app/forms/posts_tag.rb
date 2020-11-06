@@ -17,7 +17,7 @@ class PostsTag
 
     ActiveRecord::Base.transaction do
       tags = split_tag_names.map { |name| Tag.find_or_create_by!(name: name) }
-      post.update!(title: title, text: text, tags: tags)
+      post.update!(image: image, title: title, text: text, tags: tags)
     end
   rescue ActiveRecord::RecordInvalid
     false
@@ -33,6 +33,7 @@ class PostsTag
 
   def default_attributes
     {
+      image: post.image,
       title: post.title,
       text: post.text,
       name: post.tags.pluck(:name).join(','),
