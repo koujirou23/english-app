@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show,:edit,:update,:destroy]
+  before_action :set_post, only: [:show, :destroy]
   before_action :move_to_index, except: [:index, :show]
   
   def index
@@ -7,13 +7,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = PostsTag.new
+    @post = PostsForm.new
   end
 
   def create
-    @post = PostsTag.new(post_params)
-    if @post.valid?
-      @post.save
+    @post = PostsForm.new(create_params)
+    if @post.save
       redirect_to root_path
     else
       render :new
@@ -26,10 +25,14 @@ class PostsController < ApplicationController
   end
 
   def edit
+    load_post
+    @form = PostsTag.new(post: @post)
   end
 
   def update
-    if @post.update(update_params)
+    load_post
+    @form = PostsTag.new(post_params, post: @post)
+    if @form.save
       redirect_to post_path
     else 
       render :edit
@@ -47,11 +50,15 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:posts_tag).permit(:image, :title, :text, :name).merge(user_id: current_user.id)
+    params.require(:post).permit(:image, :title, :text, :name).merge(user_id: current_user.id)
   end
 
-  def update_params
-    params.require(:post).permit(:image, :title, :text)
+  def create_params
+    params.require(:posts_form).permit(:image, :title, :text,:name).merge(user_id: current_user.id)
+  end
+
+  def load_post
+    @post = current_user.posts.find(params[:id])
   end
 
   def set_post
