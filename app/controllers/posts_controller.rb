@@ -7,12 +7,12 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = PostsTag.new
+    @form = PostsTag.new
   end
 
   def create
-    @post = PostsTag.new(post_params)
-    if @post.save
+    @form = PostsTag.new(post_params)
+    if @form.save
       redirect_to root_path
     else
       render :new
