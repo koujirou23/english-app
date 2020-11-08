@@ -19,12 +19,12 @@ RSpec.describe '新規投稿', type: :system do
       # 投稿情報を入力する
       image_path = Rails.root.join('public/images/test_image.png')
       attach_file('post-image', image_path)
-      fill_in 'title',  with: @posts_tag.title
-      fill_in 'text',  with: @posts_tag.text
-      fill_in 'tag',    with: @posts_tag.name
+      fill_in 'title', with: @posts_tag.title
+      fill_in 'text', with: @posts_tag.text
+      fill_in 'tag', with: @posts_tag.name
       # 投稿するボタンを押すとpostモデル,tagモデル,post_tagモデルのカウントが1上がることを確認する
       expect  do
-        expect  do
+        expect do
           expect do
             find('input[name="commit"]').click
             sleep 1
@@ -50,9 +50,9 @@ RSpec.describe '新規投稿', type: :system do
         # 新規投稿ページへ移動する
         visit new_post_path
         # 商品情報を入力する
-        fill_in 'title',  with: ''
-        fill_in 'text',  with: ''
-        fill_in 'tag',    with: ''
+        fill_in 'title', with: ''
+        fill_in 'text', with: ''
+        fill_in 'tag', with: ''
         # 投稿ボタンをクリックする
         click_on('Post')
         # 投稿ページへ遷移することを確認する

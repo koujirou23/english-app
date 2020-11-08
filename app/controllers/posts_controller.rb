@@ -1,18 +1,18 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
   before_action :move_to_index, except: [:index, :show]
-  
+
   def index
     @posts = Post.all.order(id: 'DESC')
   end
 
   def new
-    @post = PostsForm.new
+    @form = PostsTag.new
   end
 
   def create
-    @post = PostsForm.new(create_params)
-    if @post.save
+    @form = PostsTag.new(post_params)
+    if @form.save
       redirect_to root_path
     else
       render :new
@@ -34,14 +34,14 @@ class PostsController < ApplicationController
     @form = PostsTag.new(post_params, post: @post)
     if @form.save
       redirect_to post_path
-    else 
+    else
       render :edit
     end
   end
 
   def destroy
     if @post.destroy
-    redirect_to root_path
+      redirect_to root_path
     else
       render :show
     end
@@ -51,10 +51,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:image, :title, :text, :name).merge(user_id: current_user.id)
-  end
-
-  def create_params
-    params.require(:posts_form).permit(:image, :title, :text,:name).merge(user_id: current_user.id)
   end
 
   def load_post

@@ -5,7 +5,7 @@
     Wirte a diary in English
   </h2>
 
-  <%= form_with(model: @post, url: posts_path, local: true) do |f| %>
+  <%= form_with(model: @form, url: posts_path, local: true) do |f| %>
     <%# エラーメッセージ表示 %>
     <%= render 'shared/error_messages', model: f.object %>
     <div class="post-form">
