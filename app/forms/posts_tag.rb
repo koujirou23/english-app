@@ -10,7 +10,6 @@ class PostsTag
     validates :name,  format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
   end
 
-  
   delegate :persisted?, to: :post
 
   def initialize(attributes = nil, post: Post.new)

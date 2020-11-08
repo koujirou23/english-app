@@ -7,11 +7,11 @@ class PostsController < ApplicationController
   end
 
   def new
-    @post = PostsForm.new
+    @post = PostsTag.new
   end
 
   def create
-    @post = PostsForm.new(create_params)
+    @post = PostsTag.new(post_params)
     if @post.save
       redirect_to root_path
     else
@@ -51,10 +51,6 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:image, :title, :text, :name).merge(user_id: current_user.id)
-  end
-
-  def create_params
-    params.require(:posts_form).permit(:image, :title, :text,:name).merge(user_id: current_user.id)
   end
 
   def load_post
