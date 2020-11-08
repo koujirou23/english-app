@@ -2,12 +2,12 @@ class PostsTag
   include ActiveModel::Model
   attr_accessor :image, :title, :text, :user_id, :name
 
-  validates :image,  presence: true
+  validates :image, presence: true
 
   with_options presence: true do
-    validates :title, format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
-    validates :text,  format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
-    validates :name,  format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
+    validates :title, format: { with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.' }
+    validates :text,  format: { with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.' }
+    validates :name,  format: { with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.' }
   end
 
   delegate :persisted?, to: :post
@@ -42,7 +42,7 @@ class PostsTag
       image: post.image,
       title: post.title,
       text: post.text,
-      name: post.tags.pluck(:name).join(','),
+      name: post.tags.pluck(:name).join(',')
     }
   end
 

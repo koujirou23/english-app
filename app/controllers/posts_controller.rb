@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :destroy]
   before_action :move_to_index, except: [:index, :show]
-  
+
   def index
     @posts = Post.all.order(id: 'DESC')
   end
@@ -34,14 +34,14 @@ class PostsController < ApplicationController
     @form = PostsTag.new(post_params, post: @post)
     if @form.save
       redirect_to post_path
-    else 
+    else
       render :edit
     end
   end
 
   def destroy
     if @post.destroy
-    redirect_to root_path
+      redirect_to root_path
     else
       render :show
     end
