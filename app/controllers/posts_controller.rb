@@ -12,7 +12,6 @@ class PostsController < ApplicationController
 
   def create
     @form = PostsTag.new(post_params)
-    binding.pry
     if  @form.valid? 
       @form.save
       redirect_to root_path
