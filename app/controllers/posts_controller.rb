@@ -12,7 +12,9 @@ class PostsController < ApplicationController
 
   def create
     @form = PostsTag.new(post_params)
-    if @form.save
+    binding.pry
+    if  @form.valid? 
+      @form.save
       redirect_to root_path
     else
       render :new
@@ -32,7 +34,8 @@ class PostsController < ApplicationController
   def update
     load_post
     @form = PostsTag.new(post_params, post: @post)
-    if @form.save
+    if  @form.valid? 
+      @form.save
       redirect_to post_path
     else
       render :edit
