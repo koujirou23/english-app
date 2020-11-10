@@ -19,14 +19,13 @@ class PostsTag
   end
 
   def save
-    return if invalid?
 
     ActiveRecord::Base.transaction do
       tags = split_tag_names.map { |name| Tag.find_or_create_by!(name: name) }
-      post.update!(image: image, title: title, text: text, tags: tags)
+      post.update!(image: image, title: title, text: text, tags: tags, user_id: user_id)
     end
-  rescue ActiveRecord::RecordInvalid
-    false
+    rescue ActiveRecord::RecordInvalid
+     false
   end
 
   def to_model
