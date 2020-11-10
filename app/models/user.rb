@@ -12,7 +12,10 @@ class User < ApplicationRecord
   validates :email, format: { with: VALID_EMAIL_REGEX,
                               message: 'Include (@)' }
 
-  validates :nickname, presence: true
+  with_options presence: true do
+    validates :nickname, format: {with: /\A[^ぁ-んァ-ン一-龥]/, message: 'is invalid. Input half-width characters.'}
+  end
+
   validates :password_confirmation, presence: true, on: :create
 
   has_many :posts
