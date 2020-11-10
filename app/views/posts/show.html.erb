@@ -16,6 +16,7 @@
       <div class="post-container">
         <p class="post-title"><%= @post.title %></p>
         <p><%= simple_format(@post.text) %></p>
+        <p><%= link_to @post.user.nickname, "/users/#{@post.user_id}" %></p>
       </div>
       <div class="comment-lists">
           <p>＜comment list＞</p>

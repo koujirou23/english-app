@@ -3,10 +3,10 @@
   <div class="show-contents">
     <div class="user-show-content">
       <div class="user-image-content">
-        <% if @user.image.blank? %>
+        <% if @user.avatar.blank? %>
           <%= image_tag "user_icon.png", class: "user-image" %>
         <% else %>
-          <%= image_tag @user.image, class: "user-image" if @user.image.attached? %>
+          <%= image_tag @user.avatar, class: "user-image" if @user.avatar.attached? %>
         <% end %>
       </div>
       <div class="post-container">
