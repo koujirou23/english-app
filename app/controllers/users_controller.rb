@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   before_action :correct_user, only: [:edit, :update]
 
   def show
-    @posts = Post.all.order(id: 'DESC')
     @user = User.find(params[:id])
+    @posts = Post.all.order(id: 'DESC')
   end
 
   def edit
