@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
   before_action :move_to_show, expect: [:show]
 
   def show
     @posts = Post.all.order(id: 'DESC')
+    @user = User.find(params[:id])
   end
 
   def edit
@@ -17,9 +18,9 @@ class UsersController < ApplicationController
 
   private
 
-  def set_user
-    @user = User.find(params[:id])
-  end
+  # def set_user
+  #   @user = User.find(params[:id])
+  # end
 
   def move_to_show
     redirect_to action: :show unless user_signed_in?
