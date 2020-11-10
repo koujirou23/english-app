@@ -13,8 +13,8 @@ Pass: 2222
 
 ## テスト用アカウント等
 投稿用  
-メールアドレス: taro@gmail.com  
-パスワード: taro12345  
+メールアドレス: tanaka@gmail.com   
+パスワード: tanaka123  
 コメント用  
 メールアドレス名: yamada@gmail.com  
 パスワード: yamada123  
