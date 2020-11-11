@@ -64,7 +64,7 @@ Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
 新規投稿画面はログインしたユーザーのみ遷移することが可能です。
 ユーザーは英数字、記号のみ使用可能です。それ以外を使用するとエラーが表示されます。
 投稿には写真を１枚添付することが可能です。
-投稿にタグを紐づけることが可能です。
+投稿にタグを紐づけることが可能です。(コンマで区切ると２つ以上保存可能です)
 
 [![Image from Gyazo](https://i.gyazo.com/b32775599de871b70b6fe7bfefce3027.gif)](https://gyazo.com/b32775599de871b70b6fe7bfefce3027)
 
@@ -89,17 +89,36 @@ Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
 <img width="1436" alt="スクリーンショット 2020-10-22 21 53 37" src="https://user-images.githubusercontent.com/70497233/96874413-0d4f4d80-14b1-11eb-82a0-ad0c29808511.png">
 
 ### 編集画面
-<img width="1431" alt="スクリーンショット 2020-10-22 21 58 11" src="https://user-images.githubusercontent.com/70497233/96874979-b007cc00-14b1-11eb-9afa-634ef79bda05.png">
+ツールバーの編集ボタンを押すと編集画面に遷移します。  
+
+[![Image from Gyazo](https://i.gyazo.com/467217422bec4bfe8ea226a314a62161.gif)](https://gyazo.com/467217422bec4bfe8ea226a314a62161)
 
 編集画面では投稿内容が入力されたまま表示されます。
 内容を変更して送信ボタンを押すと、投稿内容が変更され詳細画面へ遷移します。
+タグをコンマ(,)で区切るとタグを２つ以上保存することができます。
 
-[![Image from Gyazo](https://i.gyazo.com/ee99f162553895329907bc49befc037f.gif)](https://gyazo.com/ee99f162553895329907bc49befc037f)
+[![Image from Gyazo](https://i.gyazo.com/9382c9302e34f6f62bcee01ccbcf5a19.gif)](https://gyazo.com/9382c9302e34f6f62bcee01ccbcf5a19)
+
+### マイページ
+ツールバー、投稿詳細画面のニックネームをクリックするとそのユーザーのマイページへ遷移します。  
+マイページにはプロフィール画像、ニックネーム、そのユーザーが投稿した物が一覧表示されます。  
+プロフィール画像を設定していないユーザーにはデフォルトの画像を表示します。  
+ログイン中のユーザーにはプロフィール編集画面と退会ボタンが表示されます。
+ログイン中のユーザーはプロフィール編集画面で画像、ニックネーム、メールアドレスの変更できます。
+
+(現在ログイン中のユーザー)
+
+[![Image from Gyazo](https://i.gyazo.com/17f77b3facea76c12201d5ab2081a9d9.gif)](https://gyazo.com/17f77b3facea76c12201d5ab2081a9d9)
+
+(他ユーザー画面)
+
+[![Image from Gyazo](https://i.gyazo.com/040a6cc2fb4a451cfddfe2021f1d6ac4.gif)](https://gyazo.com/040a6cc2fb4a451cfddfe2021f1d6ac4)
+
+(プロフィール編集画面)
+
+[![Image from Gyazo](https://i.gyazo.com/a36bc965935290b7f4646f6c9d41fe32.gif)](https://gyazo.com/a36bc965935290b7f4646f6c9d41fe32)
 
 ## 実装予定内容
-
-###### タグの編集機能
-投稿内容編集と同時にタグの編集も可能にする予定です。
 
 ###### タグ検索機能
 投稿内容に紐づいたタグを元に検索を行えるようにする予定です。
@@ -111,8 +130,6 @@ Ruby/Ruby on Rails/MySQL/Github/AWS/Visual Studio Code
 ###### 翻訳機能
 google translate apiを用いて翻訳機能を追加予定です。
 
-###### マイページの追加
-ユーザーの自己紹介などのページを作成、プロフィール画像の設定を可能にする予定です。
 
 # DB設計
 
