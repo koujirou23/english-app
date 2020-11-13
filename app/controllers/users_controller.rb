@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :destroy, :edit, :update]
+  before_action :set_user, only: [:show, :destroy, :edit, :update, :destroy]
   before_action :correct_user, only: [:edit, :update]
 
   def show
@@ -15,6 +15,15 @@ class UsersController < ApplicationController
       redirect_to  user_path(@user.id)
     else
       render :edit
+    end
+  end
+
+  def destroy
+    if @user.destroy
+      flash[:message] = "User deleted"
+      redirect_to root_path
+    else
+      render :show
     end
   end
 

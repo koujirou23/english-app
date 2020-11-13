@@ -23,7 +23,7 @@
         <% if user_signed_in? && @user.id == current_user.id %>
           <li class="nav-item">
            <%= link_to 'Edit Profiel', edit_user_path, method: :get, class: "header-text" %>
-           <%= link_to 'Cansel membership', "#", method: :delete, class: "header-text"%>
+           <%= link_to 'Cansel membership', user_path(@user.id), method: :delete, class: "header-text"%>
           </li>
         <% end %>
     </ul>

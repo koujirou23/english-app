@@ -1,6 +1,9 @@
 <%= render "shared/header"%>
 <div class="main">
 
+  <div class="notifications">
+    <div class="notice"><%= flash[:message] %></div>
+  </div> 
   <%# 投稿表示 %>
   <div class="post-content">
     <h2 class="title">Post List</h2>
