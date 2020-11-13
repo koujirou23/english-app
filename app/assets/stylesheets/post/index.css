@@ -1,4 +1,4 @@
-html {
+body {
   background-color: #C0C0C0;
 }
 
@@ -6,6 +6,10 @@ html {
   width: 100vw;
   height: 100vh;
   background-color: #C0C0C0;
+}
+
+.notifications {
+  text-align: center;
 }
 
 .title {
