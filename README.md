@@ -4,7 +4,7 @@ English Dairy
 
 ## 接続先
 
-https://english-dairy.herokuapp.com/
+
 
 ## ID, Pass
 
